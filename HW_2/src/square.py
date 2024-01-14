@@ -7,9 +7,3 @@ class Square(Rectangle):
         if side_a <= 0:
             raise ValueError("Сторона квадрата должна быть числом больше нуля")
         super().__init__(side_a, side_a)
-
-    def get_area(self):
-        pass
-
-    def get_perimeter(self):
-        pass
