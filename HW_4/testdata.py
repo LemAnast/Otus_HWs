@@ -2,9 +2,7 @@ import csv
 import json
 
 
-from HW_4 import BOOKS_CSV
-from HW_4 import USERS_JSON
-from HW_4 import RESULT_JSON_W
+from HW_4 import BOOKS_CSV, USERS_JSON, RESULT_JSON_W
 
 
 with open(USERS_JSON, 'r') as f:
@@ -19,11 +17,17 @@ with open(USERS_JSON, 'r') as f:
         result.append(person)
 
 
-books = []
+
 with open(BOOKS_CSV, 'r') as f:
     reader = csv.DictReader(f)
+    books = []
     for row in reader:
-        books.append(row)
+        book = {}
+        book["title"] = row["Title"]
+        book["author"] = row["Author"]
+        book["pages"] = int(row["Pages"])
+        book["genre"] = row["Genre"]
+        books.append(book)
 
 
 num_users = len(users)
